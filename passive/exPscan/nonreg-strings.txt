@@ -1,0 +1,137 @@
+## vi: ft=conf
+## NOTE:
+##  this file is a aggregate of strings that `should probably`
+##  be recognized.
+##  It is useful for non-regression tests
+##
+## vim tips:
+##  remove duplicates:
+##      :'<,'>!sort -u
+##  sort by line length:
+##      :'<,'>!awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2-
+DB2 ODBC
+Index of
+JDBC SQL
+ODBC DB2
+ODBC SQL
+#DB2 Error #(always contains SQLSTATE, or SQL0204N like strings)
+PHP Error
+ server at 
+#CLI Driver # (always contains SQL0420N like str)
+#DB2 Driver
+JDBC Error
+JDBC MySQL
+MySQL ODBC
+ODBC Error
+#Oracle DB2 # useless
+Fatal error
+JDBC Driver
+JDBC Oracle
+mysql error
+MySQL Error
+ODBC Driver
+ODBC Oracle
+Oracle ODBC
+PHP Warning
+data source=
+Error Report
+include_path
+Invalid SQL:
+MySQL Driver
+Oracle Error
+SQLException
+invalid query
+Oracle Driver
+Type mismatch
+Unknown table
+database error
+internal error
+ODBC SQL Server
+PHP Parse error
+Parent Directory
+unexpected error
+ADODB.Field error
+#ASP.NET_SessionId # irrelevant
+mix of collations
+SQL Server Driver
+missing expression
+server object error
+#Warning: pg_connect # already detected to "on line [0-9]" regex in real life
+Can't find record in
+#Custom Error Message #???
+#Warning: mysql_query # already detected ty "on line [0-9]" regex in real life
+Incorrect column name
+Incorrect syntax near
+Internal Server Error
+ODBC Microsoft Access
+on MySQL result index
+The error occurred in
+Unable to jump to row
+Can't connect to local
+Disallowed Parent Path
+Invalid parameter type
+Invalid Path Character
+mySQL error with query
+ODBC SQL Server Driver
+#Warning: mysql_query()
+The script whose uid is
+is not allowed to access
+#Microsoft VBScript error # already caught in real life by microsoft regex '800a0400'
+Microsoft VBScript error '800a0400'
+Active Server Pages error
+detected an internal error
+A syntax error has occurred
+Error Diagnostic Information
+ODBC Microsoft Access Driver
+Unterminated string constant
+): encountered SQLException [
+SQL Server Driver][SQL Server
+unexpected end of SQL command
+Permission denied: 'GetObject'
+SQL command not properly ended
+[ODBC Informix driver][Informix]
+OLE/DB provider returned message
+Syntax error in query expression
+Invalid procedure call or argument
+Invision Power Board Database Error
+#Microsoft VBScript compilation error # already caught in real life by microsoft regex '800a0400'
+You have an error in your SQL syntax
+ERROR: parser: parse error at or near
+Incorrect column specifier for column
+Error Occurred While Processing Request
+Microsoft OLE DB Provider for SQL Server
+Unexpected end of command in statement [
+You have an error in your SQL syntax near
+internal error [IBM][CLI Driver][DB2/6000]
+Microsoft OLE DB Provider for ODBC Drivers
+[Microsoft][ODBC Microsoft Access 97 Driver]
+Column count doesn't match value count at row
+Error converting data type varchar to numeric
+supplied argument is not a valid MySQL result
+An unexpected token "END-OF-STATEMENT" was found
+Error Message : Error loading required libraries.
+java.lang.NumberFormatException: For input string:
+Supplied argument is not a valid PostgreSQL result
+PostgreSQL query failed: ERROR: parser: parse error
+Unclosed quotation mark before the character string
+An illegal character has been found in the statement
+ASP.NET is configured to show verbose error messages
+detected an internal error [IBM][CLI Driver][DB2/6000]
+supplied argument is not a valid MySQL result resource
+[SQL Server Driver][SQL Server]Line 1: Incorrect syntax near
+Warning: Cannot modify header information - headers already sent
+Warning: Supplied argument is not a valid File-Handle resource in
+Warning: pg_connect(): Unable to connect to PostgreSQL server: FATAL
+Incorrect syntax near
+query failed
+#not an object # too much false positives
+error occurred
+ERROR OCCURRED
+Server Error
+invalid file name
+fatal error
+parse error
+ERROR 1049 (42000): Unknown database
+No database selected
+#exception report # not relevant on google hack search
+Servlet error : java.lang.IndexOutOfBoundsException

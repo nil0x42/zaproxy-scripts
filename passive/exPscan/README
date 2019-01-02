@@ -1,0 +1,33 @@
+# vi: ft=conf
+
+=====
+NOTE:
+=====
+This directory contains some aggregate of regex lists taken.
+They serve as a memento of suspicious strings coverage.
+
+If you find any list interesting list, they are very welcome
+and i'll manage to implement them on exPscan.py
+
+## SPECIAL FILES
+nonreg-strings.txt
+    aggregate of raw strings for non-regression tests.
+
+
+## EXTERNAL SOURCES
+sqlmap-errors.xml:
+    https://github.com/sqlmapproject/sqlmap/blob/master/xml/errors.xml
+    #XXX: MOSTLY DONE
+
+zaproxy-pscanrules-application_errors.xml:
+    https://github.com/zaproxy/zap-extensions/blob/master/src/org/zaproxy/zap/extension/pscanrules/resources/application_errors.xml
+    #XXX: DONE, ADDRD TO nonreg-strings.txt
+
+zaproxy-pscanrulesAlpha-SourceCodeDisclosureScanner.java:
+    https://github.com/zaproxy/zap-extensions/blob/alpha/src/org/zaproxy/zap/extension/pscanrulesAlpha/SourceCodeDisclosureScanner.java
+    #XXX: MOSTLY DONE
+
+fuzzdb-errors.txt:
+    https://github.com/fuzzdb-project/fuzzdb/blob/master/regex/errors.txt
+    #XXX: DONE, ADDED TO nonreg-strings.txt
+
