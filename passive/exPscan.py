@@ -1199,8 +1199,8 @@ def build_matcher():
     if _GLOB["ERRORS"]:
         print(_GLOB["ERRORS"])
         raise Exception("Some tests failed")
-
-    print("[+] build_matcher(): Matcher successfully built")
+    if DEV_MODE:
+        print("[+] build_matcher(): Matcher successfully built")
     return matcher
 
 
@@ -1235,7 +1235,8 @@ def get_data_type(content_type):
 
 @exception_handler
 def scan(ps, msg, src):
-    print("\n\n--------------------\n[*] script started")
+    if DEV_MODE:
+        print("\n\n--------------------\n[*] script started")
     # Docs on alert raising function:
     #  raiseAlert(int risk, int confidence, str name, str description, str uri,
     #             str param, str attack, str otherInfo, str solution,
@@ -1253,22 +1254,26 @@ def scan(ps, msg, src):
         matcher = build_matcher()
         ScriptVars.setGlobalVar(NAME+"_matcher", pickle.dumps(matcher))
 
-    print("[+] Got matcher, now scanning body")
+    if DEV_MODE:
+        print("[+] Got matcher, now scanning body")
     body = msg.getResponseBody()
     hdr = msg.getResponseHeader()
     uri = msg.getRequestHeader().getURI().toString()
-    print("[*] URI = %s" % uri)
+    if DEV_MODE:
+        print("[*] URI = %s" % uri)
 
     content_type = max(hdr.getHeader(hdr.CONTENT_TYPE), "")
     content_type = content_type.split(";", 1)[0].strip()
     blacklist = ["audio/", "video/"]
     if any(s in content_type for s in blacklist):
-        print("[-] Blacklisted content-type %r: aborting" % content_type)
+        if DEV_MODE:
+            print("[-] Blacklisted content-type %r: aborting" % content_type)
         return
 
     data = body.toString()[:MAX_BODY_SIZE]
     data_type = get_data_type(content_type)
-    print("[*] data_type = %s" % data_type)
+    if DEV_MODE:
+        print("[*] data_type = %s" % data_type)
     matches = scan_body(data, data_type, matcher)
 
     found_evidences = []
@@ -1279,10 +1284,12 @@ def scan(ps, msg, src):
         evidence = match["str"]
         if evidence in found_evidences:
             continue
-        print("  -> GOT MATCH: %s" % title)
+        if DEV_MODE:
+            print("  -> GOT MATCH: %s" % title)
         ps.raiseAlert(0, 1, title, desc, uri, None,
                         None, None, None, evidence, 0, 0, msg)
-    print("[+] Body correctly scanned")
+    if DEV_MODE:
+        print("[+] Body correctly scanned")
 
 
 def appliesToHistoryType(histType):
