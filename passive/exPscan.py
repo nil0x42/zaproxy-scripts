@@ -1303,6 +1303,7 @@ def scan(ps, msg, src):
         evidence = match["str"]
         if evidence in found_evidences:
             continue
+        found_evidences.append(evidence)
         if DEV_MODE:
             print("  -> GOT MATCH: %s" % title)
         ps.raiseAlert(0, 1, title, desc, uri, None,
