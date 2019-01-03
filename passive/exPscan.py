@@ -16,7 +16,7 @@ NAME = "exPscan"
 MAX_BODY_SIZE = 300000
 
 DATA_TYPES = {
-        "js": ["javascript"],
+        "js": ["javascript", "ecmascript"],
         "css": ["text/css"],
         "default": None,
         }
@@ -913,7 +913,8 @@ def build_matcher():
         Invalid procedure call or argument
         Incorrect syntax near
         ORA-29282: invalid file ID
-        """)
+        """,
+        ignored_types = "js")
 
     add_iregex(name, r"sql[ _]?(state|code)\b",
         test_finds = """
@@ -1061,13 +1062,24 @@ def build_matcher():
     ############################################################
     name = "Leaked file path"
 
-    add_iregex(name, r'(/|\\)inetpub|xampp|htdocs\b',
+    add_strings(name, "file://")
+
+    add_regex(name, r'(/|\\)Users(/|\\)',
         test_finds = """
-        in c:/inetpub/wwwroot
-        in D:\Inetpub\wwwroot
+        marketplace_file:///C:/Users/sh
         """,
         test_ignores = """
         inetpubX
+        """)
+
+    add_regex(name, r'\b[CDE]:(/|\\)',
+        test_finds = r"""
+        /C:/bla
+        E:\bla
+        """,
+        test_ignores = """
+        C:
+        XC:/bla
         """)
 
     add_regex(name, r"/(home|var|www|usr)/",
@@ -1081,10 +1093,12 @@ def build_matcher():
         # www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
         """)
 
-    add_regex(name, r"\b(public_html|wwwroot)\b",
+    add_regex(name, r"\b(public_html|wwwroot|inetpub|xampp|htdocs)\b",
         test_finds = """
         /var/www/public_html/index.php
         on wwwroot
+        in c:/inetpub/wwwroot
+        in D:\Inetpub\wwwroot
         """,
         test_ignores = """
         wwwroots
