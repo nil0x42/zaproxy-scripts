@@ -692,7 +692,8 @@ def build_matcher():
         stack-trace
         """,
         test_ignores = """
-        """)
+        """,
+        ignored_types = "js")
 
     add_iregex(name, r"\bunable to cast ",
         test_finds = """
@@ -712,7 +713,8 @@ def build_matcher():
         """,
         test_ignores = """
         Xinternal error
-        """)
+        """,
+        ignored_types = "js")
 
     add_iregex(name, r"\b(syntax|parse|runtime) error\b",
         test_finds = """
@@ -726,7 +728,8 @@ def build_matcher():
         test_ignores = """
         runtime X error
         runtime errors
-        """)
+        """,
+        ignored_types = "js")
 
     add_iregex(name, r"\b(error|exception)\b.*?\bwhile (attempting|trying) to ",
         test_finds = """
@@ -741,7 +744,8 @@ def build_matcher():
         Exception thrown while attempting to traverse the result set [
         An unexpected exception occurred while attempting to communicate
         MODx encountered the following error while attempting to '
-        """)
+        """,
+        ignored_types = "js")
 
     add_iregex(name, r"\b(error|exception) (\w+ )?(encountered|occurr?ed)\b",
         test_finds = """
@@ -754,15 +758,17 @@ def build_matcher():
         """,
         test_ignores = """
         Xerrror was encountered
-        """)
+        """,
+        ignored_types = "js")
 
-    add_iregex(name, r"\error (occured|loading|encountered|report|message|converting|diagnostic)",
+    add_iregex(name, r"\error (occurr?ed|loading|encountered|report|message|converting|diagnostic)",
         test_finds = """
         error messages
         error loadinG
         Error Diagnostic Information
         Error Report
-        """)
+        """,
+        ignored_types = "js")
 
     add_regex(name, r'\b[Ee]ncountered an? (\w+ )?(error|exception)\b',
         test_finds = """
@@ -806,7 +812,8 @@ def build_matcher():
         observer error
         servererror
         server errors
-        """)
+        """,
+        ignored_types = "js")
 
     add_iregex(name, r'(login|access|authentication|permission) (failed|failure|denied)',
         test_finds = """
@@ -815,16 +822,10 @@ def build_matcher():
         Access denied for user 
         Microsoft VBScript runtime (0x800A0046). Permission denied.
         SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost'
-        """)
+        """,
+        ignored_types = "js")
 
-    add_iregex(name, r'\bunterminated string\b',
-        test_finds = """
-        Unterminated string constant 
-        SyntaxError: unterminated string literal
-        error: unterminated string
-        """)
-
-    add_iregex(name, r'\bunexpected (end|token)\b',
+    add_iregex(name, r'\b(unterminated|unexpected) (end|token|string)\b',
         test_finds = """
         Parse error: syntax error, unexpected end of file in
         compile error: unexpected end of script
@@ -832,7 +833,11 @@ def build_matcher():
         ORA-00921: unexpected end of SQL command
         syntax error near unexpected token `('
         An unexpected token "END-OF-STATEMENT" was found
-        """)
+        Unterminated string constant 
+        SyntaxError: unterminated string literal
+        error: unterminated string
+        """,
+        ignored_types = "js")
 
     add_strings(name, """
         is not allowed to access
