@@ -1255,7 +1255,8 @@ def get_data_type(content_type):
 @exception_handler
 def scan(ps, msg, src):
     if DEV_MODE:
-        print("\n\n--------------------\n[*] script started")
+        print("\n--------------------")
+        print("[*] %s script started" % NAME)
     # Docs on alert raising function:
     #  raiseAlert(int risk, int confidence, str name, str description, str uri,
     #             str param, str attack, str otherInfo, str solution,
