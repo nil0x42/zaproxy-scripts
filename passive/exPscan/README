@@ -31,3 +31,6 @@ fuzzdb-errors.txt:
     https://github.com/fuzzdb-project/fuzzdb/blob/master/regex/errors.txt
     #XXX: DONE, ADDED TO nonreg-strings.txt
 
+TODO:
+    https://github.com/noobexploiter/gsqli/blob/main/main.go
+    #XXX: NOTHING DONE
