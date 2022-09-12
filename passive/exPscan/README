@@ -32,6 +32,7 @@ fuzzdb-errors.txt:
     #XXX: DONE, ADDED TO nonreg-strings.txt
 
 TODO:
-    https://github.com/noobexploiter/gsqli/blob/main/main.go
-    https://github.com/noobexploiter/gofinder/blob/main/main.go
+    [ ] https://github.com/noobexploiter/gsqli/blob/main/main.go
+    [ ] https://github.com/noobexploiter/gofinder/blob/main/main.go
+    [ ] INCLUDE INTERESTING REGEXES FROM THIS PR: https://github.com/zaproxy/community-scripts/pull/278/files#
     #XXX: NOTHING DONE
