@@ -36,3 +36,6 @@ TODO:
     [ ] https://github.com/noobexploiter/gofinder/blob/main/main.go
     [ ] INCLUDE INTERESTING REGEXES FROM THIS PR: https://github.com/zaproxy/community-scripts/pull/278/files#
     #XXX: NOTHING DONE
+    search for:
+        /_debugbar
+        /_profiler
